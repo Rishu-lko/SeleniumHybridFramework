@@ -35,7 +35,7 @@ public class RegistrationLoginPage extends BaseClass {
 	}
 
 	public void enterRegistrationPassword(String password) throws IOException, Exception {
-		uioperations.perform(Keywords.SETTEXT, "registrationPassword",
+		uioperations.perform(Keywords.SETTEXTBYACTION, "registrationPassword",
 				propRead.getORProperty("RegistrationLoginPageOR", "registrationPassword"), password);
 	}
 
