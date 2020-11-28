@@ -16,6 +16,18 @@ public class RegistrationLoginPage extends BaseClass {
 		super.uioperations = new UIOperations(driver);
 		super.propRead = PropertyReader.getInstance();
 	}
+	
+	public void enterRegistrationUserId() throws IOException, Exception {
+		uioperations.perform(Keywords.SETTEXT, "registrationEmailId",
+				propRead.getORProperty("RegistrationLoginPageOR", "registrationEmailId"),
+				propRead.getTestData("emailId"));
+	}
+
+	public void enterRegistrationPassword() throws IOException, Exception {
+		uioperations.perform(Keywords.SETTEXTBYACTION, "registrationPassword",
+				propRead.getORProperty("RegistrationLoginPageOR", "registrationPassword"),
+				propRead.getTestData("regPassword"));
+	}
 
 	public void enterRegistrationUserId(String username) throws IOException, Exception {
 		uioperations.perform(Keywords.SETTEXT, "registrationEmailId",
@@ -35,6 +47,17 @@ public class RegistrationLoginPage extends BaseClass {
 	public void clickOnRegisterButton() throws IOException, Exception {
 		uioperations.perform(Keywords.CLICK, "registerButton",
 				propRead.getORProperty("RegistrationLoginPageOR", "registerButton"));
+	}
+	
+	public void enterLoginUserId() throws IOException, Exception {
+		uioperations.perform(Keywords.SETTEXT, "loginEmail",
+				propRead.getORProperty("RegistrationLoginPageOR", "loginEmail"), propRead.getTestData("emailId"));
+	}
+
+	public void enterLoginPassword() throws IOException, Exception {
+		uioperations.perform(Keywords.SETTEXT, "loginPassword",
+				propRead.getORProperty("RegistrationLoginPageOR", "loginPassword"),
+				propRead.getTestData("regPassword"));
 	}
 
 	public void enterLoginUserId(String username) throws IOException, Exception {

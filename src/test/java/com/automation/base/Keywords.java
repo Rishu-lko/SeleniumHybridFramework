@@ -6,5 +6,7 @@ public class Keywords {
 	public static final String GOTOURL = "GOTOURL";
 	public static final String GETTEXT = "GETTEXT";
 	public static final String VERIFYELEMENTPRESENT = "VERIFYELEMENTPRESENT";
+	public static final String SETTEXTBYACTION = "SETTEXTBYACTION";
+	
 	
 }

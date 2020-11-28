@@ -1,28 +1,36 @@
 package com.test.utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import com.automation.base.BaseClass;
 
 public class UIOperations extends BaseClass {
 
-
 	public UIOperations(WebDriver driver) {
 		super.driver = driver;
 		super.util = Utility.getInstance();
-	}	
+	}
 
 	public String perform(String operation, String objectName, String objectValue, String... data)
 			throws InterruptedException, Exception {
 		System.out.println("Performing ----> " + operation + " on Element ---> " + objectName);
 		String result = null;
+		Actions actions = null;
 		switch (operation) {
 		case "CLICK":
 			util.waitForPresenceOfElement(driver, this.getObject(objectValue)).click();
 			break;
 		case "SETTEXT":
 			util.waitForPresenceOfElement(driver, this.getObject(objectValue)).sendKeys(data[0]);
+			break;
+		case "SETTEXTBYACTION":
+			actions = new Actions(driver);
+			actions.moveToElement(util.waitForPresenceOfElement(driver, this.getObject(objectValue)))
+					.sendKeys(util.waitForPresenceOfElement(driver, this.getObject(objectValue)), data[0]).pause(10000).sendKeys(Keys.TAB).build()
+					.perform();
 			break;
 		case "GOTOURL":
 			driver.get(data[0]);
