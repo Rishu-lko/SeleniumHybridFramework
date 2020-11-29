@@ -6,8 +6,8 @@
 	<artifactId>SeleniumHybridPOMFramework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<JDKsource>1.8</JDKsource>
-		<JDKtarget>1.8</JDKtarget>
+		<JDKsource>11</JDKsource>
+		<JDKtarget>11</JDKtarget>
 		<testNGFile>src/test/resources/TestNGFiles/testng.xml</testNGFile>
 	</properties>
 	<dependencies>
