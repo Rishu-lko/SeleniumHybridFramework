@@ -9,6 +9,7 @@
 		<JDKsource>11</JDKsource>
 		<JDKtarget>11</JDKtarget>
 		<testNGFile>src/test/resources/TestNGFiles/testng.xml</testNGFile>
+		<testFailureIgnore>false</testFailureIgnore>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -54,6 +55,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
+				   <testFailureIgnore>${testFailureIgnore}</testFailureIgnore>
 					<suiteXmlFiles>
 					   <suiteXmlFile>${testNGFile}</suiteXmlFile>
 					</suiteXmlFiles>
