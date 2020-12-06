@@ -32,7 +32,7 @@ public class Utility {
 	}
 
 	public WebElement waitForPresenceOfElement(WebDriver driver, By locator) throws InterruptedException {
-		Wait wait = new WebDriverWait(driver, 90);
+		Wait wait = new WebDriverWait(driver, 5);
 		WebElement element = (WebElement) wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		this.highlight(driver, element);
 		return element;

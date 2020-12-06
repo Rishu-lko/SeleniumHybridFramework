@@ -8,7 +8,7 @@
 	<properties>
 		<JDKsource>11</JDKsource>
 		<JDKtarget>11</JDKtarget>
-		<testNGFile>src/test/resources/TestNGFiles/testng.xml</testNGFile>
+		<testNGFile>Smoke</testNGFile>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -55,10 +55,10 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 				    <systemPropertyVariables>
-				      <maven.test.failure.ignore>false</maven.test.failure.ignore>
+				        <maven.test.failure.ignore>false</maven.test.failure.ignore>
 				    </systemPropertyVariables>
 					<suiteXmlFiles>
-					   <suiteXmlFile>${testNGFile}</suiteXmlFile>
+					   <suiteXmlFile>src/test/resources/TestNGFiles/${testNGFile}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
