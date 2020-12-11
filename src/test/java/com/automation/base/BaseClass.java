@@ -3,9 +3,9 @@ package com.automation.base;
 import java.io.IOException;
 import java.net.URL;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -25,8 +25,9 @@ public class BaseClass {
 	public void init() throws IOException {
 	//	System.setProperty("webdriver.chrome.driver",
 		//		System.getProperty("user.dir") + "/src/test/resources/Drivers/chromedriver.exe");
-		DesiredCapabilities dc = DesiredCapabilities.chrome();
-		driver = new RemoteWebDriver(new URL("https://localhost:4444/wd/hub"),dc);
+		ChromeOptions cap = new ChromeOptions();
+		cap.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
+		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
 		driver.manage().window().maximize();
 		driver.get(PropertyReader.getInstance().getConfigProperty("url"));
 	}
