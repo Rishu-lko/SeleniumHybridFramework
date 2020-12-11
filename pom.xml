@@ -54,11 +54,12 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
-				    <systemPropertyVariables>
-				        <maven.test.failure.ignore>false</maven.test.failure.ignore>
-				    </systemPropertyVariables>
+					<systemProperties>
+						<name>maven.test.failure.ignore</name>
+						<value>false</value>
+					</systemProperties>
 					<suiteXmlFiles>
-					   <suiteXmlFile>src/test/resources/TestNGFiles/${testNGFile}.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/TestNGFiles/${testNGFile}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
