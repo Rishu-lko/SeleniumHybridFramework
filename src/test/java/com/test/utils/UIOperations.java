@@ -2,14 +2,14 @@ package com.test.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.base.BaseClass;
 
 public class UIOperations extends BaseClass {
 
-	public UIOperations(WebDriver driver) {
+	public UIOperations(RemoteWebDriver driver) {
 		super.driver = driver;
 		super.util = Utility.getInstance();
 	}

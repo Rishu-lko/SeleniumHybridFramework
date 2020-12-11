@@ -2,7 +2,7 @@ package com.automation.pages;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.base.BaseClass;
 import com.automation.base.Keywords;
@@ -11,7 +11,7 @@ import com.test.utils.UIOperations;
 
 public class LandingPage extends BaseClass {
 
-	public LandingPage(WebDriver driver) {
+	public LandingPage(RemoteWebDriver driver) {
 		super.driver = driver;
 		super.uioperations = new UIOperations(driver);
 		super.propRead = PropertyReader.getInstance();

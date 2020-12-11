@@ -1,6 +1,6 @@
 package com.automation.base;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.pages.HomePage;
 import com.automation.pages.LandingPage;
@@ -11,7 +11,7 @@ public class PageManagerClass extends BaseClass{
 	private LandingPage landingPage = null;
 	private RegistrationLoginPage regLoginPage = null;
 	
-	public PageManagerClass(WebDriver driver){
+	public PageManagerClass(RemoteWebDriver driver){
 		super.driver = driver;
 	}
  
