@@ -13,11 +13,11 @@ public class RegistrationTest extends BaseClass {
 	@Test
 	public void testRegistration(Method method) throws IOException, Exception {
 		System.out.println("Testcase starting ---> " + method.getName());
-		pageObjectManager = new PageManagerClass(driver);
+		pageObjectManager = new PageManagerClass(super.returnDriver());
 		pageObjectManager.getLandingPage().verifyLandingPageImage();
 		pageObjectManager.getLandingPage().clickOnMyAccountLink();
-		pageObjectManager.getRegistrationLoginPage().enterRegistrationUserId();
-		pageObjectManager.getRegistrationLoginPage().enterRegistrationPassword();
+		pageObjectManager.getRegistrationLoginPage().enterRegistrationUserId(propRead.getTestData("emailId"));
+		pageObjectManager.getRegistrationLoginPage().enterRegistrationPassword(propRead.getTestData("regPassword"));
 		pageObjectManager.getRegistrationLoginPage().verifyPasswordStrongText();
 		pageObjectManager.getRegistrationLoginPage().clickOnRegisterButton();
 		pageObjectManager.getHomePage().verifyHelloText();

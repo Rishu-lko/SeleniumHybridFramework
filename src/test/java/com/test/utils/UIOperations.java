@@ -10,7 +10,7 @@ import com.automation.base.BaseClass;
 public class UIOperations extends BaseClass {
 
 	public UIOperations(RemoteWebDriver driver) {
-		super.driver = driver;
+		super.setDriver(driver);
 		super.util = Utility.getInstance();
 	}
 
@@ -21,25 +21,25 @@ public class UIOperations extends BaseClass {
 		Actions actions = null;
 		switch (operation) {
 		case "CLICK":
-			util.waitForPresenceOfElement(driver, this.getObject(objectValue)).click();
+			util.waitForPresenceOfElement(super.returnDriver(), this.getObject(objectValue)).click();
 			break;
 		case "SETTEXT":
-			util.waitForPresenceOfElement(driver, this.getObject(objectValue)).sendKeys(data[0]);
+			util.waitForPresenceOfElement(super.returnDriver(), this.getObject(objectValue)).sendKeys(data[0]);
 			break;
 		case "SETTEXTBYACTION":
-			actions = new Actions(driver);
-			actions.moveToElement(util.waitForPresenceOfElement(driver, this.getObject(objectValue)))
-					.sendKeys(util.waitForPresenceOfElement(driver, this.getObject(objectValue)), data[0]).pause(10000).sendKeys(Keys.TAB).build()
+			actions = new Actions(super.returnDriver());
+			actions.moveToElement(util.waitForPresenceOfElement(super.returnDriver(), this.getObject(objectValue)))
+					.sendKeys(util.waitForPresenceOfElement(super.returnDriver(), this.getObject(objectValue)), data[0]).pause(10000).sendKeys(Keys.TAB).build()
 					.perform();
 			break;
 		case "GOTOURL":
-			driver.get(data[0]);
+			super.returnDriver().get(data[0]);
 			break;
 		case "GETTEXT":
-			result = util.waitForPresenceOfElement(driver, this.getObject(objectValue)).getText();
+			result = util.waitForPresenceOfElement(super.returnDriver(), this.getObject(objectValue)).getText();
 			break;
 		case "VERIFYELEMENTPRESENT":
-			util.waitForPresenceOfElement(driver, this.getObject(objectValue));
+			util.waitForPresenceOfElement(super.returnDriver(), this.getObject(objectValue));
 			break;
 		default:
 			break;

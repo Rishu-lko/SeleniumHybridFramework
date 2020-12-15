@@ -13,7 +13,7 @@ import com.test.utils.UIOperations;
 public class HomePage extends BaseClass {
 
 	public HomePage(RemoteWebDriver driver) {
-		super.driver = driver;
+		super.setDriver(driver);
 		super.uioperations = new UIOperations(driver);
 		super.propRead = PropertyReader.getInstance();
 	}

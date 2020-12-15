@@ -12,25 +12,25 @@ public class PageManagerClass extends BaseClass{
 	private RegistrationLoginPage regLoginPage = null;
 	
 	public PageManagerClass(RemoteWebDriver driver){
-		super.driver = driver;
+		super.setDriver(driver);
 	}
  
 
 	public HomePage getHomePage() {
 
-		return (homePage == null) ? homePage = new HomePage(driver) : homePage;
+		return (homePage == null) ? homePage = new HomePage(super.returnDriver()) : homePage;
 
 	}
 
 	public LandingPage getLandingPage() {
 
-		return (landingPage == null) ? landingPage = new LandingPage(driver) : landingPage;
+		return (landingPage == null) ? landingPage = new LandingPage(super.returnDriver()) : landingPage;
 
 	}
 
 	public RegistrationLoginPage getRegistrationLoginPage() {
 
-		return (regLoginPage == null) ? regLoginPage = new RegistrationLoginPage(driver) : regLoginPage;
+		return (regLoginPage == null) ? regLoginPage = new RegistrationLoginPage(super.returnDriver()) : regLoginPage;
 
 	}
 

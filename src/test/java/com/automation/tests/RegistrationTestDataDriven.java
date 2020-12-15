@@ -14,7 +14,7 @@ public class RegistrationTestDataDriven extends BaseClass {
 	@Test(dataProvider="registrationlogin",dataProviderClass=DataProviderClass.class)
 	public void testRegistration(String username,String password) throws IOException, Exception {
 		System.out.println("Testcase starting ---> testRegistration");
-		pageObjectManager = new PageManagerClass(driver);
+		pageObjectManager = new PageManagerClass(super.returnDriver());
 		pageObjectManager.getLandingPage().navigateToLandingPage();
 		pageObjectManager.getLandingPage().verifyLandingPageImage();
 		pageObjectManager.getLandingPage().clickOnMyAccountLink();

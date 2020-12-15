@@ -12,32 +12,23 @@ import com.test.utils.UIOperations;
 public class RegistrationLoginPage extends BaseClass {
 
 	public RegistrationLoginPage(RemoteWebDriver driver) {
-		super.driver = driver;
+		super.setDriver(driver);
 		super.uioperations = new UIOperations(driver);
 		super.propRead = PropertyReader.getInstance();
 	}
 	
-	public void enterRegistrationUserId() throws IOException, Exception {
+	public void enterRegistrationUserId(String registrationID) throws IOException, Exception {
 		uioperations.perform(Keywords.SETTEXT, "registrationEmailId",
 				propRead.getORProperty("RegistrationLoginPageOR", "registrationEmailId"),
-				propRead.getTestData("emailId"));
+				registrationID);
 	}
 
-	public void enterRegistrationPassword() throws IOException, Exception {
+	public void enterRegistrationPassword(String regPassword) throws IOException, Exception {
 		uioperations.perform(Keywords.SETTEXTBYACTION, "registrationPassword",
 				propRead.getORProperty("RegistrationLoginPageOR", "registrationPassword"),
-				propRead.getTestData("regPassword"));
+				regPassword);
 	}
 
-	public void enterRegistrationUserId(String username) throws IOException, Exception {
-		uioperations.perform(Keywords.SETTEXT, "registrationEmailId",
-				propRead.getORProperty("RegistrationLoginPageOR", "registrationEmailId"), username);
-	}
-
-	public void enterRegistrationPassword(String password) throws IOException, Exception {
-		uioperations.perform(Keywords.SETTEXTBYACTION, "registrationPassword",
-				propRead.getORProperty("RegistrationLoginPageOR", "registrationPassword"), password);
-	}
 
 	public void verifyPasswordStrongText() throws IOException, Exception {
 		uioperations.perform(Keywords.VERIFYELEMENTPRESENT, "registrationPageStrongText",
@@ -47,27 +38,16 @@ public class RegistrationLoginPage extends BaseClass {
 	public void clickOnRegisterButton() throws IOException, Exception {
 		uioperations.perform(Keywords.CLICK, "registerButton",
 				propRead.getORProperty("RegistrationLoginPageOR", "registerButton"));
-	}
-	
-	public void enterLoginUserId() throws IOException, Exception {
+	}	
+
+	public void enterLoginUserId(String loginId) throws IOException, Exception {
 		uioperations.perform(Keywords.SETTEXT, "loginEmail",
-				propRead.getORProperty("RegistrationLoginPageOR", "loginEmail"), propRead.getTestData("emailId"));
+				propRead.getORProperty("RegistrationLoginPageOR", "loginEmail"), loginId);
 	}
 
-	public void enterLoginPassword() throws IOException, Exception {
+	public void enterLoginPassword(String loginPassword) throws IOException, Exception {
 		uioperations.perform(Keywords.SETTEXT, "loginPassword",
-				propRead.getORProperty("RegistrationLoginPageOR", "loginPassword"),
-				propRead.getTestData("regPassword"));
-	}
-
-	public void enterLoginUserId(String username) throws IOException, Exception {
-		uioperations.perform(Keywords.SETTEXT, "loginEmail",
-				propRead.getORProperty("RegistrationLoginPageOR", "loginEmail"), username);
-	}
-
-	public void enterLoginPassword(String password) throws IOException, Exception {
-		uioperations.perform(Keywords.SETTEXT, "loginPassword",
-				propRead.getORProperty("RegistrationLoginPageOR", "loginPassword"), password);
+				propRead.getORProperty("RegistrationLoginPageOR", "loginPassword"), loginPassword);
 	}
 
 	public void clickOnLoginButton() throws IOException, Exception {

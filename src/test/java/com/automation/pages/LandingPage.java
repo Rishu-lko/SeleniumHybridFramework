@@ -12,7 +12,7 @@ import com.test.utils.UIOperations;
 public class LandingPage extends BaseClass {
 
 	public LandingPage(RemoteWebDriver driver) {
-		super.driver = driver;
+		super.setDriver(driver);
 		super.uioperations = new UIOperations(driver);
 		super.propRead = PropertyReader.getInstance();
 	}

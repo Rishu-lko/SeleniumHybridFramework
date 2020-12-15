@@ -16,7 +16,7 @@ import com.test.utils.Utility;
 
 public class BaseClass {
 
-	protected RemoteWebDriver driver = null;
+	protected ThreadLocal<RemoteWebDriver> driver = null;
 	protected PageManagerClass pageObjectManager = null;
 	protected UIOperations uioperations = null;
 	protected PropertyReader propRead = null;
@@ -27,14 +27,22 @@ public class BaseClass {
 		//		System.getProperty("user.dir") + "/src/test/resources/Drivers/chromedriver.exe");
 		ChromeOptions cap = new ChromeOptions();
 		cap.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
-		driver.manage().window().maximize();
-		driver.get(PropertyReader.getInstance().getConfigProperty("url"));
+		this.setDriver(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap));
+		this.returnDriver().manage().window().maximize();
+		propRead = PropertyReader.getInstance();
+		this.returnDriver().get(propRead.getConfigProperty("url"));
 	}
 
 	@AfterClass
 	public void tearDown() {
-		driver.quit();
+		this.returnDriver().quit();
 	}
 	
+	public void setDriver(RemoteWebDriver remoteDriver) {
+		driver.set(remoteDriver);
+	} 
+	
+	public RemoteWebDriver returnDriver() {
+		return driver.get();
+	} 
 }
