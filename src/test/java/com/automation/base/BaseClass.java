@@ -16,7 +16,7 @@ import com.test.utils.Utility;
 
 public class BaseClass {
 
-	protected ThreadLocal<RemoteWebDriver> driver = null;
+	protected ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<RemoteWebDriver>();
 	protected PageManagerClass pageObjectManager = null;
 	protected UIOperations uioperations = null;
 	protected PropertyReader propRead = null;
